@@ -11,11 +11,29 @@
                             <input type="email" class="form-control" id="email" formControlName="email" name="email" [ngClass]="{'is-invalid': signinForm.controls['email'].errors && ckDep }">
                             <small *ngIf="signinForm.controls['email'].errors && ckDep" class="text-danger">Enter Your Email</small>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 position-relative ">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" formControlName="password" name="password" [ngClass]="{'is-invalid': signinForm.controls['password'].errors && ckDep }">
-                            <small *ngIf="signinForm.controls['password'].errors && ckDep" class="text-danger">Enter Your Password</small>
-                        </div>
+                            <input
+                              [type]="showPassword ? 'text' : 'password'"
+                              class="form-control"
+                              id="password"
+                              formControlName="password"
+                              name="password"
+                              [ngClass]="{ 'is-invalid': signinForm.controls['password'].errors && ckDep }"
+                            />
+                            <i
+                              class="fa"
+                              [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                              (click)="togglePasswordVisibility()"
+                              style="position: absolute; right: 10px; top: 45px; cursor: pointer;"
+                            ></i>
+                            <small
+                              *ngIf="signinForm.controls['password'].errors && ckDep"
+                              class="text-danger"
+                              >Enter Your Password</small
+                            >
+                          </div>
+                          
                         <div class="signinform text-center">
                             <h4>
                                 Don't have an account?
@@ -23,7 +41,7 @@
                             </h4>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Login</button>
                         </div>
                     </form>
                 </div>

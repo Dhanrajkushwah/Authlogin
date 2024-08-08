@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
 export class RegisterComponent implements OnInit {
   registrationForm!: FormGroup;
   ckDep: boolean = false;
-
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
   constructor(private fb: FormBuilder,private router: Router,private service: LoginService) {}
 
   ngOnInit(): void {
@@ -31,6 +32,13 @@ export class RegisterComponent implements OnInit {
     }, { validators: confirmPasswordValidator('password', 'confirmPassword') });
   }
 
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirmPasswordVisibility(): void {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
   onRegister(): void {
     if (this.registrationForm.invalid) {
       this.ckDep = true;

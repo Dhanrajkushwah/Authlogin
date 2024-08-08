@@ -1,0 +1,28 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background: #f093fb;
+    background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+    background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+}
+
+/* Apply the background image with full coverage */
+.container-fluid {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp');
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+.custom-text {
+    margin-top: 20px;
+    margin-left: 50px;
+    font-size: 40px !important;
+  }
+  
+  .custom-button {
+    margin-left: 50px;
+  }

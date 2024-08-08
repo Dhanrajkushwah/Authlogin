@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   signinForm!: FormGroup;
   ckDep: boolean = false;
+  showPassword: boolean = false;
   constructor(private fb: FormBuilder,
     private router: Router,private service: LoginService) {}
 
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
       )]]
     });
   }
-
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
   onSignin(): void {
     if (this.signinForm.invalid) {
         this.ckDep = true;
@@ -41,7 +44,7 @@ export class LoginComponent implements OnInit {
                     confirmButtonText: 'OK'
                 });
                 this.signinForm.reset();
-                this.router.navigate(["/loginform"]);
+                this.router.navigate(["/home"]);
                 console.log(res);
             },
             (err: any) => {
